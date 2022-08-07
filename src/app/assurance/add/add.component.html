@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Nouvel assuré</title>
+    <meta name="theme-color" content="#712cf9">
+  </head>
+  <body>
+    <div class="container mb-4">
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <img src="../../../assets/logo/logo.jpg" alt="" width="100px" height="50px">
+            <!-- <span class="fs-4">LDS Assurance</span> -->
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-dark text-decoration-none" routerLink="/" >Accueil</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" routerLink="/add">Nouveau</a>
+            <!-- <a class="me-3 py-2 text-dark text-decoration-none" href="#">Liste des assurés</a> -->
+          </nav>
+        </div>
+
+        <h2 class="display-6 mb-4 text-primary">Nouvelle assurance</h2>
+      </header>
+      <main class="">
+        <div class="row">
+          <div class="col-md-5"><hr></div>
+          <div class="col-md-3 text-danger" >INFORMATIONS DU CLIENT</div>
+          <div class="col-md-4"><hr></div>
+        </div>
+        <form [formGroup]="formGroup">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Prénom </label> <b class="text-danger">*</b>
+                <input type="text" formControlName="prenom" id="prenom" placeholder="SALIOU DIAO" class="form-control"
+                >
+                <div class="invalid-feedback" >
+                  <strong>Nom invalid</strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Nom</label> <b class="text-danger">*</b>
+                <input type="text" formControlName="nom" placeholder="SYLLA" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="form-group">
+                <label for="name" class="form-label">Téléphone</label> <b class="text-danger">*</b>
+                <input type="number" maxlength="6" formControlName="telephone" placeholder="622000000" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="form-group">
+                <label for="name" class="form-label">Email</label>
+                <input type="email" formControlName="email" placeholder="abc@gmail.com" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="form-group">
+                <label for="name" class="form-label">Adresse</label>
+                <input type="text" formControlName="adresse" placeholder="Dixinn Terrasse" class="form-control" required>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-5"><hr></div>
+            <div class="col-md-3 text-danger">PERIODE DE COUVERTURE</div>
+            <div class="col-md-4"><hr></div>
+          </div>
+          <!-- Souscription -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Début</label> <b class="text-danger"> *</b>
+                <input type="date" (change)="setDateFin()" formControlName="debut" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Fin</label>
+                <input type="date" formControlName="fin" class="form-control"  style="background-color: rgb(230, 227, 227);" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-5"><hr></div>
+            <div class="col-md-3 text-danger">CARACTERISTIQUES DU VEHICULE</div>
+            <div class="col-md-4"><hr></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Marque</label>  <b class="text-danger"> *</b>
+                <input type="text" formControlName="marque" placeholder="Toyota" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name" class="form-label">Immatricultaion</label>  <b class="text-danger"> *</b>
+                <input type="text" formControlName="immatriculation" placeholder="RC 2022" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="form-group">
+                <label for="name" class="form-label">Puissance</label>  <b class="text-danger"> *</b>
+                <select formControlName="puissance" class="form-control">
+                  <option value="moins_50">Moins de 50</option>
+                  <option value="50_100">50 à 100</option>
+                  <option value="101_200">101 à 200</option>
+                  <option value="plus_200">Plus de 200</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="form-group">
+                <label for="name" class="form-label">Date de Mise en Circulation</label>  <b class="text-danger"> *</b>
+                <input type="date" formControlName="encirculation" placeholder="RC 2022" class="form-control" required>
+                <!-- <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control" />
+                <div>Selected : {{selected | json}}</div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button class="btn btn-primary mt-4" (click)="onSubmit()"  >Enregistrer</button>
+              <!-- [disabled]="formGroup.invalid" -->
+            </div>
+          </div>
+        </form>
+      </main>
+    <div>
