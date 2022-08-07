@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { AssuranceRoutingModule } from './assurance-routing.module';
 import { AddComponent } from './add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { DetailComponent } from './detail/detail.component';
 
 
@@ -18,7 +17,6 @@ import { DetailComponent } from './detail/detail.component';
     FormsModule,
     ReactiveFormsModule,
     AssuranceRoutingModule,
-    NgxDaterangepickerMd.forRoot()
   ]
 })
 export class AssuranceModule { }
